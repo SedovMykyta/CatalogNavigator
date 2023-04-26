@@ -1,6 +1,13 @@
+using CatalogNavigator.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<CatalogNavigatorContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MyDB")));
+
 
 var app = builder.Build();
 
