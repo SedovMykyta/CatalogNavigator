@@ -4,15 +4,25 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>3b95d4eb-ef56-4965-8e94-85cd0c1c933d</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="FontAwesome.MVC" Version="1.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\TreeView\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\TreeView\_TreeNodes.cshtml" />
     </ItemGroup>
 
 </Project>

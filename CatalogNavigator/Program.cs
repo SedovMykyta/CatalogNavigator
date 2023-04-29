@@ -8,7 +8,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CatalogNavigatorContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyDB")));
 
-
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
