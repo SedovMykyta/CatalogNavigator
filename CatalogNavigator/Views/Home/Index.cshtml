@@ -1,8 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <h1 class="display-10">Welcome to our website!</h1>
+    <p class="lead">Here you can find information about folders in the system, export or import folders.</p>
+    <hr>
+    <h3>Available methods:</h3>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="@Url.Action("GetList", "Folder")">List of folders</a></li>
+        <li class="list-group-item"><a href="@Url.Action("ImportFolder", "Folder")">Import from a file</a></li>
+        <li class="list-group-item"><a href="@Url.Action("ExportFolder", "Folder")">Export to file</a></li>
+    </ul>
 </div>
