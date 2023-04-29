@@ -1,0 +1,42 @@
+﻿@model List<Folder>
+
+@{
+    ViewBag.Title = "GetList";
+    Layout = "_Layout";
+}
+
+@functions {
+    public void RenderNode(Folder node)
+    {
+@if (node.Children.Count == 0)
+{
+    <li>@node.Name</li>
+}
+else
+{
+    <li>
+        <details>
+            <summary>@node.Name</summary>
+            <ul>
+                @foreach (var child in node.Children)
+                {
+                    RenderNode(child);
+                }
+            </ul>
+        </details>
+    </li>
+}
+    }
+
+}
+
+<div class="container">
+    <h3>List of folders</h3>
+    <ul class="treeDisplay">
+        @foreach (var node in Model.Where(n => n.Parent == null))
+        {
+            RenderNode(node);
+            <br/>
+        }
+    </ul>
+</div>
