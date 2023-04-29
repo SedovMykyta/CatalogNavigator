@@ -1,0 +1,36 @@
+﻿@model List<Folder>
+
+@{
+    ViewBag.Title = "GetList";
+    Layout = "_Layout";
+}
+
+@functions {
+    public void RenderNode(Folder node)
+    {
+        <li>
+            <a href="@Url.Action("DownloadFolder", "Folder", new { id = node.Id })">@node.Name</a>
+            @if (node.Children.Count > 0)
+            {
+                <ul>
+                    @foreach (var child in node.Children)
+                    {
+                        RenderNode(child);
+                    }
+                </ul>
+            }
+        </li>
+    }
+}
+
+<div class="container">
+    <h3>Export folder</h3>
+    <p>Click on the folder and the zip archive with it and its subfolders will be downloaded</p>
+    <ul class="treeExport">
+        @foreach (var node in Model.Where(n => n.Parent == null))
+        {
+            RenderNode(node);
+            <br/>
+        }
+    </ul>
+</div>

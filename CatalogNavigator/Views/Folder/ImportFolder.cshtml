@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "ImportFolder";
+    Layout = "_Layout";
+}
+
+<form method="post" asp-controller="Folder" asp-action="ImportFolder" enctype="multipart/form-data">
+    <legend>Uploading the file to the server</legend>
+    <div class="form-group">
+        <label class="form-label mt-4">Select the file, and the folder structure where it is located will be imported</label>
+        <input class="form-control" type="file" name="uploadedFile">
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Import</button>
+</form>
